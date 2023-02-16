@@ -1,7 +1,7 @@
 name: base_api
 description: A Dart Base API Client.
 version: 0.0.1
-homepage: https://pub.dev/packages?page=4
+homepage: https://github.com/alaattinbedir/weather_flutter_bloc.git
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
