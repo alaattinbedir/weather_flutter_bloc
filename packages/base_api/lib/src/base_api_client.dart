@@ -41,7 +41,7 @@ enum MimeType {
   const MimeType(this.name);
 }
 
-class BaseClient {
+class BaseApiClient {
   var client = http.Client();
   static const int timeOutDuration = 20;
 
