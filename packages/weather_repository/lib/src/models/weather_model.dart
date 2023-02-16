@@ -18,6 +18,24 @@ class WeatherModel extends Equatable {
   final int currentDate;
   final String cityName;
 
+  WeatherModel copyWith({
+    required List<Datum> dailyList,
+    required List<Currently> hourlyList,
+    required String weatherType,
+    required double currentCityTemp,
+    required int currentDate,
+    required String cityName,
+  }) {
+    return WeatherModel(
+      dailyList: dailyList,
+      hourlyList: hourlyList,
+      weatherType: weatherType,
+      currentCityTemp: currentCityTemp,
+      currentDate: currentDate,
+      cityName: cityName,
+    );
+  }
+
   @override
   List<Object?> get props => [dailyList, hourlyList, weatherType, currentCityTemp, currentDate, cityName];
 }

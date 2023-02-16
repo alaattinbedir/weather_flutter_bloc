@@ -1,0 +1,65 @@
+{
+    // Olası öznitelikler hakkında bilgi edinmek için IntelliSense kullanın.
+    // Mevcut özniteliklerin açıklamalarını görüntülemek için üzerine gelin.
+    // Daha fazla bilgi için şu adresi ziyaret edin: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "weather_flutter_bloc",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "weather_flutter_bloc (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "weather_flutter_bloc (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "base_api",
+            "cwd": "packages/base_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "base_api (profile mode)",
+            "cwd": "packages/base_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "base_api (release mode)",
+            "cwd": "packages/base_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "weather_repository",
+            "cwd": "packages/weather_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "weather_repository (profile mode)",
+            "cwd": "packages/weather_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "weather_repository (release mode)",
+            "cwd": "packages/weather_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
