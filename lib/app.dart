@@ -38,6 +38,7 @@ class WeatherAppView extends StatelessWidget {
               titleTextStyle: GoogleFonts.rajdhaniTextTheme(textTheme).apply(bodyColor: Colors.white).titleLarge,
             ),
           ),
+          debugShowCheckedModeBanner: false,
           home: const WeatherPage(),
         );
       },

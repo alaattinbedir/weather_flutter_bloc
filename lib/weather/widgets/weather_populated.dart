@@ -80,23 +80,23 @@ class WeatherPopulated extends StatelessWidget {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
-                    itemCount: 18,
+                    itemCount: weather.hourlyList.length,
                     separatorBuilder: (context, index) {
                       return const SizedBox(
                         width: 5,
                       );
                     },
                     itemBuilder: (context, index) {
-                      return buildHorlyCell(index);
+                      return buildHorlyCell(index, weather);
                     },
                   ),
                 ),
                 Expanded(
                   child: ListView.builder(
                       padding: const EdgeInsets.all(8),
-                      itemCount: 10,
+                      itemCount: weather.dailyList.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return buildDailyCell(index);
+                        return buildDailyCell(index, weather);
                       }),
                 ),
               ],
@@ -108,7 +108,7 @@ class WeatherPopulated extends StatelessWidget {
   }
 }
 
-Widget buildHorlyCell(int index) => Container(
+Widget buildHorlyCell(int index, WeatherModel weather) => Container(
       color: Colors.transparent,
       width: 55,
       height: 120,
@@ -117,7 +117,7 @@ Widget buildHorlyCell(int index) => Container(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            Utility().getHourFromDate(1231231),
+            Utility().getHourFromDate(weather.hourlyList[index].time),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15.0,
@@ -137,7 +137,7 @@ Widget buildHorlyCell(int index) => Container(
             height: 5,
           ),
           Text(
-            Utility().convertFahrenheitToCelsiusAsString(233),
+            Utility().convertFahrenheitToCelsiusAsString(weather.hourlyList[index].temperature),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15.0,
@@ -148,9 +148,9 @@ Widget buildHorlyCell(int index) => Container(
       ),
     );
 
-Widget buildDailyCell(int index) => Container(
+Widget buildDailyCell(int index, WeatherModel weather) => Container(
       color: Colors.transparent,
-      height: 55,
+      height: 45,
       child: Row(
         children: [
           const SizedBox(
@@ -159,7 +159,7 @@ Widget buildDailyCell(int index) => Container(
           SizedBox(
             width: 90,
             child: Text(
-              Utility().getDayFromDate(232323324324),
+              Utility().getDayFromDate(weather.dailyList[index].time),
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15.0,
@@ -176,7 +176,7 @@ Widget buildDailyCell(int index) => Container(
           ),
           const Spacer(),
           Text(
-            Utility().convertFahrenheitToCelsiusAsString(232),
+            Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].apparentTemperatureHigh),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15.0,
@@ -187,7 +187,7 @@ Widget buildDailyCell(int index) => Container(
             width: 15,
           ),
           Text(
-            Utility().convertFahrenheitToCelsiusAsString(232),
+            Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temperatureHigh),
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 15.0,
