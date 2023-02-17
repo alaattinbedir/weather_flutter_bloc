@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'weather_cubit.dart';
 
 enum WeatherStatus { initial, loading, success, failure }
@@ -19,6 +20,9 @@ class WeatherState extends Equatable {
   final WeatherStatus status;
   final WeatherModel weatherModel;
 
+  @override
+  List<Object> get props => [status, weatherModel];
+
   WeatherState copyWith({
     WeatherStatus? status,
     WeatherModel? weatherModel,
@@ -28,7 +32,4 @@ class WeatherState extends Equatable {
       weatherModel: weatherModel ?? this.weatherModel,
     );
   }
-
-  @override
-  List<Object> get props => [];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_flutter_bloc/weather/widgets/weather_empty.dart';
 import 'package:weather_flutter_bloc/weather/widgets/weather_error.dart';
 import 'package:weather_flutter_bloc/weather/widgets/weather_loading.dart';
 import 'package:weather_repository/weather_repository.dart';
@@ -46,6 +47,7 @@ class _WeatherViewState extends State<WeatherView> {
             builder: (context, state) {
               switch (state.status) {
                 case WeatherStatus.initial:
+                  return const WeatherEmpty();
                 case WeatherStatus.loading:
                   return const WeatherLoading();
                 case WeatherStatus.success:
