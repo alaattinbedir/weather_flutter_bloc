@@ -12,28 +12,13 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
   Future<void> fetchWeather(String? city) async {
     if (city == null || city.isEmpty) return;
 
-    // emit(
-    //   state.copyWith(
-    //     status: WeatherStatus.loading,
-    //   ),
-    // );
-
     try {
       final weatherModel = await _weatherRepository.getWeather(city);
-
-      final newWeatherModel = WeatherModel(
-        dailyList: weatherModel.dailyList,
-        hourlyList: weatherModel.hourlyList,
-        weatherType: weatherModel.weatherType,
-        currentCityTemp: weatherModel.currentCityTemp,
-        currentDate: weatherModel.currentDate,
-        cityName: weatherModel.cityName,
-      );
 
       emit(
         state.copyWith(
           status: WeatherStatus.success,
-          weatherModel: newWeatherModel,
+          weatherModel: weatherModel,
         ),
       );
     } on Exception {
