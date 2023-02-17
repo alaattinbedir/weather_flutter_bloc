@@ -47,7 +47,6 @@ class _WeatherViewState extends State<WeatherView> {
             builder: (context, state) {
               switch (state.status) {
                 case WeatherStatus.initial:
-                  return const WeatherEmpty();
                 case WeatherStatus.loading:
                   return const WeatherLoading();
                 case WeatherStatus.success:

@@ -151,49 +151,63 @@ Widget buildHorlyCell(int index, WeatherModel weather) => Container(
 Widget buildDailyCell(int index, WeatherModel weather) => Container(
       color: Colors.transparent,
       height: 45,
-      child: Row(
+      child: Stack(
         children: [
-          const SizedBox(
-            width: 15,
-          ),
-          SizedBox(
-            width: 90,
-            child: Text(
-              Utility().getDayFromDate(weather.dailyList[index].time),
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15.0,
-                fontWeight: FontWeight.w400,
+          Container(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              width: 90,
+              child: Text(
+                Utility().getDayFromDate(weather.dailyList[index].time),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
-          const Spacer(),
-          Image.asset(
-            'assets/images/partly_sunny.png',
-            width: 40,
-            height: 30,
-            fit: BoxFit.fitWidth,
-          ),
-          const Spacer(),
-          Text(
-            Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].apparentTemperatureHigh),
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 15.0,
-              fontWeight: FontWeight.w400,
+          Center(
+            child: Image.asset(
+              'assets/images/partly_sunny.png',
+              width: 40,
+              height: 30,
+              fit: BoxFit.fitWidth,
             ),
           ),
-          const SizedBox(
-            width: 15,
-          ),
-          Text(
-            Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temperatureHigh),
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 15.0,
-              fontWeight: FontWeight.w400,
+          Container(
+            alignment: Alignment.centerRight,
+            child: Wrap(
+              alignment: WrapAlignment.end,
+              children: [
+                SizedBox(
+                  width: 22,
+                  child: Text(
+                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].apparentTemperatureHigh),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                SizedBox(
+                  width: 22,
+                  child: Text(
+                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temperatureHigh),
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
