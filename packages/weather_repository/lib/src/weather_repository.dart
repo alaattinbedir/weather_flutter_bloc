@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:base_api/base_api.dart';
-import 'package:weather_repository/src/models/weather_model.dart';
+import '../weather_repository.dart';
 
 class WeatherRepository {
   WeatherRepository({BaseApiClient? weatherApiClient}) : _weatherApiClient = weatherApiClient ?? BaseApiClient();
