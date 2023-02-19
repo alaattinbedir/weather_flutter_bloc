@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:weather_flutter_bloc/app/helper/exception_handlers.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 part 'weather_state.dart';
 
 class WeatherCubit extends HydratedCubit<WeatherState> {
-  WeatherCubit(this._weatherRepository) : super(const WeatherState());
+  WeatherCubit(this._weatherRepository) : super(const WeatherState(errorMessage: ''));
 
   final WeatherRepository _weatherRepository;
 
@@ -23,8 +24,9 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
           weatherModel: weatherModel,
         ),
       );
-    } on Exception {
-      emit(state.copyWith(status: WeatherStatus.failure));
+    } catch (e) {
+      var errorMessage = ExceptionHandlers().getExceptionString(e);
+      emit(state.copyWith(status: WeatherStatus.failure, errorMessage: errorMessage));
     }
   }
 

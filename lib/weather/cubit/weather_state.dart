@@ -14,22 +14,26 @@ class WeatherState extends Equatable {
   const WeatherState({
     this.status = WeatherStatus.initial,
     WeatherModel? weatherModel,
+    required String errorMessage,
   }) : weatherModel =
             weatherModel ?? const WeatherModel(cityName: '', currentCityTemp: 0, currentDate: 0, dailyList: [], hourlyList: [], weatherType: '');
 
   final WeatherStatus status;
   final WeatherModel weatherModel;
+  final String errorMessage = '';
 
   @override
-  List<Object> get props => [status, weatherModel];
+  List<Object> get props => [status, weatherModel, errorMessage];
 
   WeatherState copyWith({
     WeatherStatus? status,
     WeatherModel? weatherModel,
+    String? errorMessage,
   }) {
     return WeatherState(
       status: status ?? this.status,
       weatherModel: weatherModel ?? this.weatherModel,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 }
