@@ -27,7 +27,7 @@ class UnAuthorizedException extends AppException {
   UnAuthorizedException([String? message, String? url]) : super(message, 'UnAuthorized request', url);
 }
 
-const String baseUrl = 'http://api.darksky.net/forecast/2bb07c3bece89caf533ac9a5d23d8417';
+const String baseUrl = 'https://api.darksky.net/forecast/2bb07c3bece89caf533ac9a5d23d8417';
 
 enum MimeType {
   applicationJson("application/json"),
