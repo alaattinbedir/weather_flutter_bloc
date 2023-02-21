@@ -68,8 +68,8 @@ class Currently {
   int time;
   Summary? summary;
   Icon? icon;
-  int precipIntensity;
-  int precipProbability;
+  num precipIntensity;
+  num precipProbability;
   double temperature;
   double apparentTemperature;
   double dewPoint;
@@ -207,7 +207,7 @@ class Datum {
   num precipIntensity;
   double precipIntensityMax;
   int? precipIntensityMaxTime;
-  double precipProbability;
+  num precipProbability;
   double temperatureHigh;
   int temperatureHighTime;
   double temperatureLow;
