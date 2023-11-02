@@ -150,7 +150,7 @@ Widget buildHorlyCell(int index, WeatherModel weather) => Container(
 
 Widget buildDailyCell(int index, WeatherModel weather) => Container(
       color: Colors.transparent,
-      height: 45,
+      height: 43,
       child: Stack(
         children: [
           Container(
