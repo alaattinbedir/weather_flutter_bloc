@@ -12,11 +12,11 @@ class WeatherRepository {
     final weather = weatherFromJson(response);
 
     return WeatherModel(
-        dailyList: weather.daily.data,
-        hourlyList: weather.hourly.data,
-        weatherType: weather.currently.summary == null ? 'Clear' : weather.currently.summary.toString(),
-        currentCityTemp: weather.currently.temperature,
-        currentDate: weather.currently.time,
+        dailyList: weather.daily,
+        hourlyList: weather.hourly,
+        weatherType: weather.current.weather[0].description.name,
+        currentCityTemp: weather.current.temp,
+        currentDate: weather.current.dt,
         cityName: 'Barcelona');
   }
 }

@@ -53,7 +53,9 @@ class _WeatherViewState extends State<WeatherView> {
                   return WeatherPopulated(
                     weather: state.weatherModel,
                     onRefresh: () {
-                      return context.read<WeatherCubit>().fetchWeather('/41.3874,2.1686');
+                      return context
+                          .read<WeatherCubit>()
+                          .fetchWeather('onecall?lat=41.3874&lon=2.1686&exclude=minutely,alert&appid=b6dd3cedb673897c7f68486a9b40b7a3&units=metric');
                     },
                   );
                 case WeatherStatus.failure:

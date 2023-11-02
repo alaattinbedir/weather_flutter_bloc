@@ -11,16 +11,16 @@ class WeatherModel extends Equatable {
     required this.cityName,
   });
 
-  final List<Datum> dailyList;
-  final List<Currently> hourlyList;
+  final List<Daily> dailyList;
+  final List<Current> hourlyList;
   final String weatherType;
   final double currentCityTemp;
   final int currentDate;
   final String cityName;
 
   WeatherModel copyWith({
-    required List<Datum> dailyList,
-    required List<Currently> hourlyList,
+    required List<Daily> dailyList,
+    required List<Current> hourlyList,
     required String weatherType,
     required double currentCityTemp,
     required int currentDate,

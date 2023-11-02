@@ -13,7 +13,9 @@ class _WeatherLoadingState extends State<WeatherLoading> {
   @override
   void initState() {
     super.initState();
-    context.read<WeatherCubit>().fetchWeather('/41.3874,2.1686');
+    context
+        .read<WeatherCubit>()
+        .fetchWeather('onecall?lat=41.3874&lon=2.1686&exclude=minutely,alert&appid=b6dd3cedb673897c7f68486a9b40b7a3&units=metric');
   }
 
   @override

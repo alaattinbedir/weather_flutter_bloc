@@ -117,7 +117,7 @@ Widget buildHorlyCell(int index, WeatherModel weather) => Container(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            Utility().getHourFromDate(weather.hourlyList[index].time),
+            Utility().getHourFromDate(weather.hourlyList[index].dt),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15.0,
@@ -137,7 +137,7 @@ Widget buildHorlyCell(int index, WeatherModel weather) => Container(
             height: 5,
           ),
           Text(
-            Utility().convertFahrenheitToCelsiusAsString(weather.hourlyList[index].temperature),
+            Utility().convertFahrenheitToCelsiusAsString(weather.hourlyList[index].temp),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15.0,
@@ -158,7 +158,7 @@ Widget buildDailyCell(int index, WeatherModel weather) => Container(
             child: SizedBox(
               width: 90,
               child: Text(
-                Utility().getDayFromDate(weather.dailyList[index].time),
+                Utility().getDayFromDate(weather.dailyList[index].dt),
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15.0,
@@ -183,7 +183,7 @@ Widget buildDailyCell(int index, WeatherModel weather) => Container(
                 SizedBox(
                   width: 22,
                   child: Text(
-                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].apparentTemperatureHigh),
+                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temp.max),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
@@ -197,7 +197,7 @@ Widget buildDailyCell(int index, WeatherModel weather) => Container(
                 SizedBox(
                   width: 22,
                   child: Text(
-                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temperatureHigh),
+                    Utility().convertFahrenheitToCelsiusAsString(weather.dailyList[index].temp.min),
                     style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 15.0,
